@@ -38,7 +38,7 @@ main {
   ##{&}-top-section {
     @include addFlex(center, center, column) ;
     position: relative ;
-    background-image: url('../../assets/kid-image.jpg') ;
+    background-image: url('../assets/kid-image.jpg') ;
     background-size: cover ;
     aspect-ratio: 1 / 1 ;
     width: 100% ;
