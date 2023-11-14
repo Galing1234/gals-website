@@ -1,23 +1,18 @@
+import { openMenu } from "./header.js" ;
+
 export function resizeWindow() {
-  const projectTitles = document.querySelectorAll('.project-title') ;
-
-  projectTitles.forEach(projectTitle => {
-    if (projectTitle.scrollHeight > 30) {
-      projectTitle.classList.add('ellipsis-applied') ;
-    } else {
-      projectTitle.classList.remove('ellipsis-applied') ;
-    }
-  }) ;
-  
   if (window.innerWidth < 700) {
-    const extendedMenu = document.getElementById('extended-menu') ;
-
     document.getElementById('header-right-section').innerHTML = `
       <i class="bi bi-list" id="svg-menu" style="font-size: 64px ;"></i>
     ` ;
 
-    extendedMenu.style.top = '-100%' ;
-    extendedMenu.style.animation = ' ' ;
+    const menu = document.getElementById('svg-menu') ;
+  
+    if (menu) {
+      menu.addEventListener('click', () => {
+        openMenu() ;
+      }) ;
+    }
   } else {
     document.getElementById('header-right-section').innerHTML = `
       <article>

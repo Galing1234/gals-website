@@ -55,8 +55,6 @@ export function renderMain() {
     const projectId = projectShowcase.dataset.projectId ;
     const matchingProject = loopThroughProjects(projectId) ;
 
-    console.log(matchingProject)
-
     projectShowcase.addEventListener('click', () => {
       window.open(matchingProject.projectShowcase) ;
     }) ;

@@ -1,4 +1,4 @@
-export let isMenuClicked = false ;
+let isMenuClicked = false ;
 
 export function openMenu() {
   const extendedMenu = document.getElementById('extended-menu') ;
@@ -12,15 +12,17 @@ export function openMenu() {
     setTimeout(() => {
       extendedMenu.style.top = '90px' ;
       extendedMenu.style.animation = ' ' ;
-    }) ;
+    }, 500) ;
+
+    isMenuClicked = true ;
   } else {
     extendedMenu.style.animation = 'closeMenu 0.5s' ;
 
     setTimeout(() => {
       extendedMenu.style.top = '-100%' ;
       extendedMenu.style.animation = ' ' ;
-    }) ;
-  }
+    }, 500) ;
 
-  isMenuClicked = !isMenuClicked ;
+    isMenuClicked = false ;
+  }
 }
