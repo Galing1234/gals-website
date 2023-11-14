@@ -1,0 +1,48 @@
+@import '../utils/utils.scss' ;
+
+header {
+  @include addFlex(center, space-between, row) ;
+  display: flex ;
+  position: fixed ;
+  top: 10px ;
+  width: 100vw ;
+  height: 80px ;
+  border: 1px solid black ;
+  background: rgb(255, 255, 255) ;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) ;
+  font-family: 'Roboto', sans-serif ;
+  flex-grow: 1 ;
+  z-index: 10000 ;
+
+  ##{&}-left-section {
+    font-weight: bold ;
+    font-size: 28px ;
+    margin: 0 0 0 20px ;
+  }
+
+  ##{&}-right-section {
+    @include addFlex(center, right) ;
+    flex: 1 ;
+    font-weight: 500 ;
+    font-size: 18px ;
+    white-space: nowrap ;
+    flex-grow: 1 ;
+
+    article {
+      @include addFlex(center, center, row) ;
+      cursor: pointer ;
+      transition: color 0.35s ;
+      flex: 1 ;
+
+      a {
+        color: rgb(71, 70, 70) ;
+        text-decoration: none ;
+      }
+
+      a:hover {
+        color: rgb(84, 79, 79) ;
+        text-decoration: underline ;
+      }
+    }
+  }
+}

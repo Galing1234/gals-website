@@ -1,0 +1,213 @@
+@import '../shared/header' ;
+@import '../shared/menu' ;
+@import '../utils/utils.scss' ;
+
+body {
+  @include addFlex(center, center, column) ;
+  height: 100vh ;
+  overflow-x: hidden ;
+  margin: 0 ;
+  padding: 0 ;
+  background: rgb(220, 220, 220) ;
+}
+
+main {
+  @include addFlex(center, center, column) ;
+  position: absolute ;
+  top: 90px ;
+  left: 0 ;
+  right: 0 ;
+
+  .main-section-title {
+    text-align: center ;
+    font-size: 4.2vw ;
+    font-weight: 900 ;
+    letter-spacing: 1em ;
+    padding: 5px 0 ;
+    border-top: 3px solid rgb(0, 0, 0) ;
+    border-bottom: 3px solid rgb(0, 0, 0) ;
+    width: calc(100vw - 30px) ;
+  }
+
+  .main-section-paragraph {
+    font-size: 2.6vw ;
+    width: 95% ;
+    text-align: center ;
+  }
+
+  ##{&}-top-section {
+    @include addFlex(center, center, column) ;
+    position: relative ;
+    background-image: url('../../assets/kid-image.jpg') ;
+    background-size: cover ;
+    aspect-ratio: 1 / 1 ;
+    width: 100% ;
+ 
+    #main-kid-presentation {
+      @include addFlex(center, center, column) ;
+      position: absolute ;
+      top: 50% ;
+      font-size: 9vw ;
+      font-family: 'Open Sans';
+      font-weight: bold ;
+      letter-spacing: .02em ;
+  
+      #main-kid-name {
+        overflow: hidden ;
+        white-space: nowrap ;
+        border-right: .15em solid orange ;
+        animation: 
+          typing 1s steps(100, end),
+          blink-caret 0.25s step-end infinite ;
+      }
+  
+      #main-kid-marked {
+        color: rgb(255, 166, 0) ;
+      }
+  
+      #main-kid-position {
+        overflow: hidden ;
+        white-space: nowrap ;
+        border-right: .15em solid rgb(255, 166, 0) ;
+        opacity: 0 ;
+      }
+  
+      #learn-more-button {
+        background: rgb(0, 255, 0) ;
+        border: none ;
+        color: rgb(0, 0, 0) ;
+        font-size: 30px ;
+        font-weight: bold ;
+        border-radius: 10px ;
+        padding: 10px 15px ;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) ;
+        letter-spacing: normal ;
+        text-decoration: none ;
+        transform: rotateZ(2deg) ;
+        cursor: pointer ;
+
+        &:hover {
+          background: rgba(0, 255, 0, 0.85) ;
+        }
+      }
+  
+      @keyframes typing {
+        from {
+          width: 0 ;
+        }
+  
+        to { 
+          width: 100% ;
+        }
+      }
+  
+      @keyframes typing-backwards {
+        from {
+          width: 100% ;
+        }
+  
+        to { 
+          width: 0% ;
+        }
+      }
+      
+      @keyframes blink-caret {
+        from, to {
+          border-color: transparent ;
+        }
+  
+        50% {
+          border-color: rgb(255, 166, 0) ; 
+        }
+      }
+    }
+  }
+
+  #about-me-section,
+  #my-projects-section {
+    @include addFlex(center, center, column) ; 
+    margin-top: 5px ;
+  }
+
+  #projects-grid {
+    display: grid ;
+    margin-top: 10px ;
+    align-items: center ;
+    width: 95% ;
+    grid-gap: 5vw ;
+
+    .my-projects-project {
+      @include addFlex(center, center, column) ;
+      padding: 5px ;
+      border: 1px solid rgb(0, 0, 0) ;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5) ;
+
+      .project-image {
+        max-width: 100% ;
+        aspect-ratio: 1 / 1 ;
+        padding-bottom: 1.2vw ;
+        border-bottom: 0.3vw solid rgb(0, 0, 0) ;
+      }
+
+      .project-title {
+        @include applyEllipsis ;
+        font-weight: 600 ;
+        font-size: 2vw ;
+        width: 80% ;
+      }
+
+      .project-description {
+        font-size: 1.8vw ;
+        font-style: italic ;
+        max-height: 1.8vw * 3 ;
+        overflow: hidden ;
+      }
+
+      .project-buttons {
+        margin-top: 1.5vw ;
+
+        .project-button {
+          background: rgb(0, 255, 0) ;
+          border: 0.1vw solid rgb(0, 0, 0) ;
+          border-radius: 1.2vw ;
+          font-size: 1.5vw ;
+          box-shadow: 0 0 7px rgba(0, 0, 0, 0.5) ;
+          padding: 3px 5px ;
+        }
+
+        .project-button:nth-child(1) {
+          margin-bottom: 5px ;
+        }
+      }
+
+      .project-languages {
+        font-size: 1.6vw ;
+      }
+    }
+
+    @media (max-width: 500px) {
+      grid-template-columns: 1fr ;
+
+      .my-projects-project {
+        justify-self: center ;
+        width: 70.2vw ;
+      }
+    }
+
+    @media (min-width: 501px) and (max-width: 600px) {
+      grid-template-columns: 1fr 1fr ;
+
+      .my-projects-project {
+        width: 35.4vw ;
+      }
+    }
+
+    @media (min-width: 601px) {
+      grid-template-columns: 1fr 1fr 1fr ;
+
+      .my-projects-project {
+        width: 27.2vw ;
+      }
+    }
+  }
+}

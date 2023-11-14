@@ -1,0 +1,52 @@
+@import '../utils/utils.scss' ;
+
+#extended-menu {
+  @include addFlex(center, none, column) ;
+  position: fixed ;
+  left: 0 ;
+  right: 0 ;
+  top: -100% ;
+  height: calc(100vh - 90px) ;
+  z-index: 100000 ;
+  font-family: 'Open Sans', sans-serif ;
+
+  .menu-section {
+    @include addFlex(center, center) ;
+    flex: 1 ;
+    width: 100% ;
+    font-size: 30px ;
+    font-weight: bold ;
+    color: rgb(255, 255, 255) ;
+    background: rgb(87, 85, 85) ;
+    cursor: pointer ;
+
+    &:hover {
+      background: rgb(80, 69, 69) ;
+    }
+  }
+}
+
+@keyframes openMenu {
+  from {
+    top: -100% ;
+  }
+
+  to {
+    top: 90px ;
+  }
+}
+
+@keyframes closeMenu {
+  from {
+    top: 90px ;
+  }
+
+  to {
+    top: -100% ;
+  }
+}
+
+#svg-menu {
+  cursor: pointer ;
+  margin-right: 20px ;
+}
