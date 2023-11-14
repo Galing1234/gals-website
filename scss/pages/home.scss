@@ -123,8 +123,7 @@ main {
     }
   }
 
-  #about-me-section,
-  #my-projects-section {
+  .main-section {
     @include addFlex(center, center, column) ; 
     margin-top: 5px ;
   }

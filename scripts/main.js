@@ -34,7 +34,7 @@ export function renderMain() {
             Project Showcase
           </button>
 
-          <button class="project-button github-repository">
+          <button class="project-button github-repository" data-project-id="${project.id}">
             Github Repository
           </button>
         </div>
@@ -51,13 +51,11 @@ export function renderMain() {
   const projectShowcases = document.querySelectorAll('.project-showcase') ;
   const githubRepositories = document.querySelectorAll('.github-repository') ;
 
-  let projectId ;
-  let matchingProject ;
-
   projectShowcases.forEach(projectShowcase => {
-    projectId = projectShowcase.dataset.projectId ;
+    const projectId = projectShowcase.dataset.projectId ;
+    const matchingProject = loopThroughProjects(projectId) ;
 
-    matchingProject = loopThroughProjects(projectId) ;
+    console.log(matchingProject)
 
     projectShowcase.addEventListener('click', () => {
       window.open(matchingProject.projectShowcase) ;
@@ -65,6 +63,9 @@ export function renderMain() {
   }) ;
 
   githubRepositories.forEach(githubRepository => {
+    const projectId = githubRepository.dataset.projectId ;
+    const matchingProject = loopThroughProjects(projectId) ;
+
     githubRepository.addEventListener('click', () => {
       window.open(matchingProject.githubRepository) ;
     }) ;
